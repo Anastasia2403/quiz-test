@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { fontsSize, fontsWeight, colors } from "../styles/Constants";
 
 const Button = styled.button`
+  position: absolute;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -13,15 +14,20 @@ const Button = styled.button`
   line-height: 24px;
   color: ${colors.light};
   transition: color 0.3s ease-in-out;
+  bottom: 112px;
 
   &:hover {
     color: ${colors.dark};
   }
 `;
 
-export const DownloadButton: React.FC = () => {
+interface DownloadButtonProps {
+  onClick?: () => void;
+}
+
+export const DownloadButton: React.FC<DownloadButtonProps> = ({ onClick }) => {
   return (
-    <Button>
+    <Button onClick={onClick}>
       <img src="/download.svg" alt="Download" />
       Download my answers
     </Button>

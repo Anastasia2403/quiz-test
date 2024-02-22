@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import { Text } from "../styles/Text";
 import { colors } from "../styles/Constants";
+import { useNavigate } from "react-router-dom";
 
 const ProgressWrapper = styled.div`
   width: 100%;
@@ -21,7 +22,7 @@ const BaseBox = styled.div`
   height: 100%;
   position: absolute;
   border-radius: 4px;
-  transition: width 3s ease-in-out;
+  transition: width 1s ease-in-out;
 `;
 
 const Background = styled(BaseBox)`
@@ -62,11 +63,18 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   questionNum,
   count,
 }) => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    if (questionNum > 1) {
+      navigate(`/quiz/${questionNum - 1}`);
+    }
+  };
+
   return (
     <ProgressWrapper>
       <ProgressTitle>
         {questionNum > 1 && questionNum <= count && (
-          <ButtonBack>
+          <ButtonBack onClick={handleBack}>
             <img src={"/back.svg"} alt={"back"} />
           </ButtonBack>
         )}

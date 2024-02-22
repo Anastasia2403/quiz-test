@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "question": "<p>What is your preferred language?</p>",
+    "subquestion": "<p>Choose language</p>",
+    "type": "single-select",
+    "options": [
+      {
+        "label": "<p>English<p>",
+        "value": "English"
+      },
+      {
+        "label": "<p>French<p>",
+        "value": "French"
+      },
+      {
+        "label": "<p>German<p>",
+        "value": "German"
+      },
+      {
+        "label": "<p>Spanish<p>",
+        "value": "Spanish"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "<p>What gender do you identify with?</p>",
+    "subquestion": "<p>Please share how do you identify yourself</p>",
+    "type": "single-select-image",
+    "options": [
+      {
+        "label": "<span>&#128105;</span><p>Female</p>",
+        "value": "female"
+      },
+      {
+        "label": "<span>&#128104;</span><p>Male</p>",
+        "value": "male"
+      },
+      {
+        "label": "<span>&#128521;</span><p>Other</p>",
+        "value": "other"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "<p>What is your age?</p>",
+    "subquestion": null,
+    "type": "single-select",
+    "options": [
+      {
+        "label": "<p>18-29 years</p>",
+        "value": "18-29"
+      },
+      {
+        "label": "<p>30-39 years</p>",
+        "value": "30-39"
+      },
+      {
+        "label": "<p>40-49 years</p>",
+        "value": "40-49"
+      },
+      {
+        "label": "<p>50+ years</p>",
+        "value": "50-over"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "<p>What do you <span>hate</span> the most in a book?</p>",
+    "subquestion": null,
+    "type": "multiple-select",
+    "options": [
+      {
+        "label": "<p>Lack of logic</p>",
+        "value": "lack-of-logic"
+      },
+      {
+        "label": "<p>A slow speed</p>",
+        "value": "a-slow-speed"
+      },
+      {
+        "label": "<p>Lack of humor</p>",
+        "value": "lack-of-humor"
+      },
+      {
+        "label": "<p>Way too generic ending</p>",
+        "value": "generic-ending"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "<p>What are your favorite topics?</p>",
+    "subquestion": "<p>Choose up to 3 topics you like</p>",
+    "type": "bubble",
+    "options": [
+      {
+        "label": "<span>&#x1F43A;</span><p>Werewolf</p>",
+        "value": "werewolf"
+      },
+      {
+        "label": "<span>&#128131;</span><p>Action</p>",
+        "value": "action"
+      },
+      {
+        "label": "<span>&#128081;</span><p>Royal Obsession</p>",
+        "value": "royal-obsession"
+      },
+      {
+        "label": "<span>&#129297;</span><p>Billionaire</p>",
+        "value": "billionaire"
+      },
+      {
+        "label": "<span>&#129392;</span><p>Romance</p>",
+        "value": "romance"
+      },
+      {
+        "label": "<span>&#128129;</span><p>Young Adult</p>",
+        "value": "young-adult"
+      },
+      {
+        "label": "<span>&#129312;</span><p>Bad Boy</p>",
+        "value": "bad-boy"
+      }
+    ]
+  }
+]

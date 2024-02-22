@@ -6,6 +6,7 @@ export const colors = {
   white: "#FFFFFF",
   light: "#F2F3F5",
   dark: "#C4C8CC",
+  error: "red",
 };
 
 export const fontsSize = {

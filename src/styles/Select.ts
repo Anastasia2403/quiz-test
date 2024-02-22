@@ -8,7 +8,6 @@ export const Select = styled.div<SelectsWrapperProps>`
   display: flex;
   flex-direction: ${({ direction }) => direction};
   gap: 12px;
-  flex-wrap: wrap;
 
   & > * {
     align-items: ${({ direction }) => direction === "row" && "center"};

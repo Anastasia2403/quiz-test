@@ -22,4 +22,11 @@ export const StyledButton = styled.button`
     background-color: ${colors.secondary};
     opacity: 0.8;
   }
+
+  ,
+  &:disabled {
+    background-color: ${colors.secondary}; /* Change to your desired color */
+    cursor: not-allowed; /* Change cursor to not-allowed when disabled */
+    opacity: 0.5; /* Adjust opacity for disabled state */
+  }
 `;

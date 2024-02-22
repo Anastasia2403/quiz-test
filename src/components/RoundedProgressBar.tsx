@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Text } from "../styles/Text";
 import { colors } from "../styles/Constants";
 import { MainWrapper } from "../styles/MainWrapper";
+import { useNavigate } from "react-router-dom";
 
 const ProgressWrapper = styled.div`
   position: relative;
@@ -35,6 +36,7 @@ const TextWrapper = styled.div`
 
 export const CircularProgressBar = () => {
   const [progress, setProgress] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,6 +45,7 @@ export const CircularProgressBar = () => {
           return prevProgress + 1;
         }
         clearInterval(interval);
+        navigate("/email");
         return 100;
       });
     }, 50);

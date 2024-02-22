@@ -1,13 +1,12 @@
-import React from "react";
 import styled from "styled-components";
-import { colors, fontsSize, fontsWeight } from "../styles/Constants";
+import { colors, fontsSize, fontsWeight } from "./Constants";
 
 export const SingleWrapper = styled.div<SingleWrapperProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
   background-color: ${colors.primary};
-  padding: 28px 24px;
+  padding: 20px;
   color: ${colors.white};
   border-radius: 16px;
   font-size:${fontsSize.small};
@@ -26,27 +25,11 @@ export const SingleWrapper = styled.div<SingleWrapperProps>`
     border-color: ${colors.secondary};
   `}
 
-  & > span {
+  & > span{
     font-size: ${fontsSize.extraLarge};
   },
 `;
 
-interface SingleOptionProps {
-  children: React.ReactNode;
+interface SingleWrapperProps {
   isSelected: boolean;
-  onClick: () => void;
 }
-
-type SingleWrapperProps = Pick<SingleOptionProps, "isSelected">;
-
-export const SingleOption: React.FC<SingleOptionProps> = ({
-  children,
-  isSelected,
-  onClick,
-}) => {
-  return (
-    <SingleWrapper isSelected={isSelected} onClick={onClick}>
-      {children}
-    </SingleWrapper>
-  );
-};
