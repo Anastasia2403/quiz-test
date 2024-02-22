@@ -1,0 +1,17 @@
+{
+  "next": "Siguiente",
+  "loading": "Buscando colecciones para ti...",
+  "email" : {
+    "title" : "Correo electrónico",
+    "description" : "Ingresa tu correo electrónico para obtener acceso completo",
+    "agree" : "Al continuar, acepto la política de privacidad y los términos de uso.",
+    "placeholder" : "Tu correo electrónico",
+    "invalid" : "Correo electrónico no válido"
+  },
+  "thankyou": {
+    "title": "¡Gracias!",
+    "description": "por apoyarnos y aprobar el cuestionario"
+  },
+  "download": "Descargar mis respuestas",
+  "retake": "Volver a realizar el cuestionario"
+}

@@ -1,0 +1,17 @@
+{
+  "next": "Volgende",
+  "loading": "Op zoek naar collecties voor jou...",
+  "email" : {
+    "title" : "E-mail",
+    "description" : "Voer je e-mailadres in om volledige toegang te krijgen",
+    "agree" : "Door te gaan, ga ik akkoord met het privacybeleid en de gebruiksvoorwaarden.",
+    "placeholder" : "Jouw e-mailadres",
+    "invalid" : "Ongeldige e-mail"
+  },
+  "thankyou": {
+    "title": "Bedankt!",
+    "description": "voor je steun en het halen van de quiz"
+  },
+  "download": "Download mijn antwoorden",
+  "retake": "Neem de quiz opnieuw af"
+}

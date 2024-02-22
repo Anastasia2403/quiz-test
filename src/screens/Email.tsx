@@ -4,12 +4,14 @@ import { Text } from "../styles/Text";
 import { StyledButton } from "../styles/Button";
 import { StyledInput } from "../components/Input";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const Email: React.FC = () => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const validateEmail = (email: string) => {
     if (!email) return true;
@@ -46,7 +48,7 @@ export const Email: React.FC = () => {
         lineHeight={32}
         as={"h1"}
       >
-        Email
+        {t("email.title")}
       </Text>
       <Text
         size={"small"}
@@ -55,7 +57,7 @@ export const Email: React.FC = () => {
         lineHeight={24}
         margin={56}
       >
-        Enter your email to get full access
+        {t("email.description")}
       </Text>
       <StyledInput
         value={email}
@@ -68,11 +70,13 @@ export const Email: React.FC = () => {
         weight={"regular"}
         lineHeight={24}
       >
-        By continuing I agree with <span>Privacy policy</span> and <br />
-        <span>Terms of use.</span>
+        {t("email.agree")}
       </Text>
-      <StyledButton disabled={isDisabled} onClick={handleNextClick}>
-        Next
+      <StyledButton
+        disabled={isDisabled || email.trim().length === 0}
+        onClick={handleNextClick}
+      >
+        {t("next")}
       </StyledButton>
     </MainWrapper>
   );

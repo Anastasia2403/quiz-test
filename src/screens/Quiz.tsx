@@ -10,6 +10,7 @@ import { Checkbox } from "../components/CheckboxOption";
 import { BubbleOption } from "../components/BubbleOption";
 import { BubbleSelect } from "../styles/BubbleSelect";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface QuestionProps {
   question: Question;
@@ -26,6 +27,7 @@ export const Quiz: React.FC<QuestionProps> = ({
     [key: string]: string[];
   }>({});
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const storedOptions = localStorage.getItem("results");
@@ -74,6 +76,9 @@ export const Quiz: React.FC<QuestionProps> = ({
           question.type === "single-select-image") &&
         updatedOptions[question.id].length === 1
       ) {
+        {
+          questionNum === 1 && window.location.reload();
+        }
         handleNext();
       }
 
@@ -174,7 +179,7 @@ export const Quiz: React.FC<QuestionProps> = ({
             selectedOptions[question.id].length === 0
           }
         >
-          Next
+          {t("next")}
         </StyledButton>
       )}
     </MainWrapper>

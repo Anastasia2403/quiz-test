@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { fontsSize, fontsWeight, colors } from "../styles/Constants";
+import { useTranslation } from "react-i18next";
 
 const Button = styled.button`
   position: absolute;
@@ -26,10 +27,12 @@ interface DownloadButtonProps {
 }
 
 export const DownloadButton: React.FC<DownloadButtonProps> = ({ onClick }) => {
+  const { t } = useTranslation();
+
   return (
     <Button onClick={onClick}>
       <img src="/download.svg" alt="Download" />
-      Download my answers
+      {t("download")}
     </Button>
   );
 };

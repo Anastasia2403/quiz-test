@@ -1,0 +1,17 @@
+{
+  "next": "Next",
+  "loading": "Finding collections for you...",
+  "email" : {
+    "title" : "Email",
+    "description" : "Enter your email to get full access",
+    "agree" : "By continuing I agree with Privacy policy and Terms of use.",
+    "placeholder" : "Your email",
+    "invalid" : "Invalid email"
+  },
+  "thankyou": {
+    "title": "Thank you!",
+    "description": "for supporting us and passing quiz"
+  },
+  "download": "Download my answers",
+  "retake": "Retake quiz"
+}

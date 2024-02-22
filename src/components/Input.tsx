@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors, fontsSize, fontsWeight } from "../styles/Constants";
 import React from "react";
 import { Text } from "../styles/Text";
+import { useTranslation } from "react-i18next";
 
 interface InputProps {
   error?: boolean;
@@ -55,10 +56,11 @@ export const StyledInput: React.FC<StyledInputProps> = ({
   onChange,
   error,
 }) => {
+  const { t } = useTranslation();
   return (
     <Form>
       <Input
-        placeholder="Email"
+        placeholder={t("email.placeholder")}
         type="email"
         value={value}
         onChange={onChange}
@@ -66,7 +68,7 @@ export const StyledInput: React.FC<StyledInputProps> = ({
       />
       {error && (
         <Text size={"extraSmall"} color={"error"} weight={"regular"}>
-          Invalid email
+          {t("email.invalid")}
         </Text>
       )}
     </Form>

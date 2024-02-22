@@ -1,0 +1,17 @@
+{
+  "next": "Suivant",
+  "loading": "Recherche de collections pour vous...",
+  "email" : {
+    "title" : "E-mail",
+    "description" : "Entrez votre adresse e-mail pour obtenir un accès complet",
+    "agree" : "En continuant, j'accepte la politique de confidentialité et les conditions d'utilisation.",
+    "placeholder" : "Votre adresse e-mail",
+    "invalid" : "E-mail invalide"
+  },
+  "thankyou": {
+    "title": "Merci",
+    "description": "de nous soutenir et d'avoir réussi le quiz"
+  },
+  "download": "Télécharger mes réponses",
+  "retake": "Recommencer le quiz"
+}

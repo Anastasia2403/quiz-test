@@ -4,6 +4,7 @@ import { Text } from "../styles/Text";
 import { colors } from "../styles/Constants";
 import { MainWrapper } from "../styles/MainWrapper";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ProgressWrapper = styled.div`
   position: relative;
@@ -37,6 +38,7 @@ const TextWrapper = styled.div`
 export const CircularProgressBar = () => {
   const [progress, setProgress] = useState(0);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -90,7 +92,7 @@ export const CircularProgressBar = () => {
         </TextWrapper>
       </ProgressWrapper>
       <Text size={"small"} weight={"medium"} color={"white"} lineHeight={25}>
-        Finding collections for you...
+        {t("loading")}
       </Text>
     </Container>
   );

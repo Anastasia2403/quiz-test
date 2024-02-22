@@ -4,6 +4,12 @@ import { Quiz } from "./screens/Quiz";
 import { Processing } from "./screens/Processing";
 import { Email } from "./screens/Email";
 import { Results } from "./screens/Results";
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import enTranslation from "./locales/en.json";
+import frTranslation from "./locales/fr.json";
+import esTranslation from "./locales/es.json";
+import deTranslation from "./locales/de.json";
 
 export interface Question {
   id: number;
@@ -13,12 +19,27 @@ export interface Question {
   options: { label: string; value: string }[];
 }
 
-function App() {
+i18n.use(initReactI18next).init({
+  resources: {
+    en: { translation: enTranslation },
+    fr: { translation: frTranslation },
+    es: { translation: esTranslation },
+    de: { translation: deTranslation },
+  },
+  lng: "en",
+  fallbackLng: "en",
+  interpolation: {
+    escapeValue: false,
+  },
+});
+
+const App = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<null | Question>(null);
+  const [language, setLanguage] = useState("en");
 
   useEffect(() => {
-    fetch("/questions.json")
+    fetch(`/questions/${language}Questions.json`)
       .then((response) => response.json())
       .then((data) => {
         setQuestions(data);
@@ -27,7 +48,22 @@ function App() {
         }
       })
       .catch((error) => console.error("Error fetching questions:", error));
-  }, []);
+  }, [language]);
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]);
+
+  useEffect(() => {
+    const resultsString = localStorage.getItem("results");
+
+    if (resultsString) {
+      const resultsObject = JSON.parse(resultsString);
+      const elementWithKeyOne = resultsObject["1"];
+
+      setLanguage(elementWithKeyOne[0]);
+    }
+  });
 
   return (
     <BrowserRouter>
@@ -57,6 +93,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

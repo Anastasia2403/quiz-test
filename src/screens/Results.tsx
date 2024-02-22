@@ -5,6 +5,7 @@ import { StyledButton } from "../styles/Button";
 import { useNavigate } from "react-router-dom";
 import { DownloadButton } from "../components/DownloadButton";
 import { Question } from "../App";
+import { useTranslation } from "react-i18next";
 
 interface ResultsProps {
   questions: Question[];
@@ -13,6 +14,7 @@ interface ResultsProps {
 export const Results: React.FC<ResultsProps> = ({ questions }) => {
   const navigate = useNavigate();
   const localData = JSON.parse(localStorage.getItem("results") || "{}");
+  const { t } = useTranslation();
 
   const handleRetakeQuiz = () => {
     localStorage.removeItem("results");
@@ -56,7 +58,7 @@ export const Results: React.FC<ResultsProps> = ({ questions }) => {
         lineHeight={32}
         as={"h1"}
       >
-        <i>Thank you</i>
+        <i>{t("thankyou.title")}</i>
       </Text>
       <Text
         size={"small"}
@@ -65,11 +67,11 @@ export const Results: React.FC<ResultsProps> = ({ questions }) => {
         lineHeight={24}
         margin={56}
       >
-        for supporting us and passing the quiz
+        {t("thankyou.description")}
       </Text>
       <img src="/checkmark.svg" alt={"checkmark"} />
       <DownloadButton onClick={downloadCSV} />
-      <StyledButton onClick={handleRetakeQuiz}>Retake quiz</StyledButton>
+      <StyledButton onClick={handleRetakeQuiz}>{t("retake")}</StyledButton>
     </MainWrapper>
   );
 };

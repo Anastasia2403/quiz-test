@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "question": "<p>¿Cuál es tu idioma preferido?</p>",
+    "subquestion": "<p>Selecciona idioma</p>",
+    "type": "single-select",
+    "options": [
+      {
+        "label": "<p>Inglés<p>",
+        "value": "en"
+      },
+      {
+        "label": "<p>Francés<p>",
+        "value": "fr"
+      },
+      {
+        "label": "<p>Alemán<p>",
+        "value": "de"
+      },
+      {
+        "label": "<p>Español<p>",
+        "value": "es"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "<p>¿Con qué género te identificas?</p>",
+    "subquestion": "<p>Por favor, comparte cómo te identificas</p>",
+    "type": "single-select-image",
+    "options": [
+      {
+        "label": "<span>&#128105;</span><p>Femenino</p>",
+        "value": "female"
+      },
+      {
+        "label": "<span>&#128104;</span><p>Masculino</p>",
+        "value": "male"
+      },
+      {
+        "label": "<span>&#128521;</span><p>Otro</p>",
+        "value": "other"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "<p>¿Cuál es tu edad?</p>",
+    "subquestion": null,
+    "type": "single-select",
+    "options": [
+      {
+        "label": "<p>18-29 años</p>",
+        "value": "18-29"
+      },
+      {
+        "label": "<p>30-39 años</p>",
+        "value": "30-39"
+      },
+      {
+        "label": "<p>40-49 años</p>",
+        "value": "40-49"
+      },
+      {
+        "label": "<p>50+ años</p>",
+        "value": "50-over"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "<p>¿Qué es lo que más <span>odias</span> en un libro?</p>",
+    "subquestion": null,
+    "type": "multiple-select",
+    "options": [
+      {
+        "label": "<p>Falta de lógica</p>",
+        "value": "lack-of-logic"
+      },
+      {
+        "label": "<p>Velocidad lenta</p>",
+        "value": "a-slow-speed"
+      },
+      {
+        "label": "<p>Falta de humor</p>",
+        "value": "lack-of-humor"
+      },
+      {
+        "label": "<p>Final demasiado genérico</p>",
+        "value": "generic-ending"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "<p>¿Cuáles son tus temas favoritos?</p>",
+    "subquestion": "<p>Elige hasta 3 temas que te gusten</p>",
+    "type": "bubble",
+    "options": [
+      {
+        "label": "<span>&#x1F43A;</span><p>Hombre lobo</p>",
+        "value": "werewolf"
+      },
+      {
+        "label": "<span>&#128131;</span><p>Acción</p>",
+        "value": "action"
+      },
+      {
+        "label": "<span>&#128081;</span><p>Obsesión real</p>",
+        "value": "royal-obsession"
+      },
+      {
+        "label": "<span>&#129297;</span><p>Billonario</p>",
+        "value": "billionaire"
+      },
+      {
+        "label": "<span>&#129392;</span><p>Romance</p>",
+        "value": "romance"
+      },
+      {
+        "label": "<span>&#128129;</span><p>Juvenil</p>",
+        "value": "young-adult"
+      },
+      {
+        "label": "<span>&#129312;</span><p>Chico malo</p>",
+        "value": "bad-boy"
+      }
+    ]
+  }
+]

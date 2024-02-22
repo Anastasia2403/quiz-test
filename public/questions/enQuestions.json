@@ -7,19 +7,19 @@
     "options": [
       {
         "label": "<p>English<p>",
-        "value": "English"
+        "value": "en"
       },
       {
         "label": "<p>French<p>",
-        "value": "French"
+        "value": "fr"
       },
       {
         "label": "<p>German<p>",
-        "value": "German"
+        "value": "de"
       },
       {
         "label": "<p>Spanish<p>",
-        "value": "Spanish"
+        "value": "es"
       }
     ]
   },
