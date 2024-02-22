@@ -1,8 +1,8 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { colors, fontsSize, fontsWeight } from "../styles/Constants";
-import React from "react";
 import { Text } from "../styles/Text";
-import { useTranslation } from "react-i18next";
 
 interface InputProps {
   error?: boolean;

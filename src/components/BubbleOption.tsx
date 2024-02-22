@@ -1,7 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 import { SingleWrapper } from "../styles/SingleOption";
 import { fontsSize } from "../styles/Constants";
-import React from "react";
 
 export const BubbleWrapper = styled(SingleWrapper)<BubbleWrapperProps>`
   border-radius: 50%;

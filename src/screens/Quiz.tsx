@@ -1,16 +1,16 @@
-import { MainWrapper } from "../styles/MainWrapper";
-import { ProgressBar } from "../components/ProgressBar";
-import { Text } from "../styles/Text";
 import React, { useEffect, useState } from "react";
-import { StyledButton } from "../styles/Button";
-import { Question } from "../App";
-import { Select } from "../styles/Select";
-import { SingleWrapper } from "../styles/SingleOption";
-import { Checkbox } from "../components/CheckboxOption";
-import { BubbleOption } from "../components/BubbleOption";
-import { BubbleSelect } from "../styles/BubbleSelect";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Question } from "../App";
+import { ProgressBar } from "../components/ProgressBar";
+import { Checkbox } from "../components/CheckboxOption";
+import { BubbleOption } from "../components/BubbleOption";
+import { Text } from "../styles/Text";
+import { StyledButton } from "../styles/Button";
+import { Select } from "../styles/Select";
+import { SingleWrapper } from "../styles/SingleOption";
+import { BubbleSelect } from "../styles/BubbleSelect";
+import { MainWrapper } from "../styles/MainWrapper";
 
 interface QuestionProps {
   question: Question;

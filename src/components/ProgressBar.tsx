@@ -1,8 +1,8 @@
-import styled from "styled-components";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import { Text } from "../styles/Text";
 import { colors } from "../styles/Constants";
-import { useNavigate } from "react-router-dom";
 
 const ProgressWrapper = styled.div`
   width: 100%;

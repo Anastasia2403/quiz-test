@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { StyledInput } from "../components/Input";
 import { MainWrapper } from "../styles/MainWrapper";
 import { Text } from "../styles/Text";
 import { StyledButton } from "../styles/Button";
-import { StyledInput } from "../components/Input";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
 export const Email: React.FC = () => {
   const [email, setEmail] = useState("");

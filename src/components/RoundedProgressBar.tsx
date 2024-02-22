@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { Text } from "../styles/Text";
-import { colors } from "../styles/Constants";
-import { MainWrapper } from "../styles/MainWrapper";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import styled from "styled-components";
+import { MainWrapper } from "../styles/MainWrapper";
+import { Text } from "../styles/Text";
+import { colors } from "../styles/Constants";
 
 const ProgressWrapper = styled.div`
   position: relative;

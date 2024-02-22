@@ -1,11 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { DownloadButton } from "../components/DownloadButton";
+import { Question } from "../App";
 import { MainWrapper } from "../styles/MainWrapper";
 import { Text } from "../styles/Text";
 import { StyledButton } from "../styles/Button";
-import { useNavigate } from "react-router-dom";
-import { DownloadButton } from "../components/DownloadButton";
-import { Question } from "../App";
-import { useTranslation } from "react-i18next";
 
 interface ResultsProps {
   questions: Question[];

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { fontsSize, fontsWeight, colors } from "../styles/Constants";
 import { useTranslation } from "react-i18next";
+import { fontsSize, fontsWeight, colors } from "../styles/Constants";
 
 const Button = styled.button`
   position: absolute;

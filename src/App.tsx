@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 import { Quiz } from "./screens/Quiz";
 import { Processing } from "./screens/Processing";
 import { Email } from "./screens/Email";
 import { Results } from "./screens/Results";
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
 import enTranslation from "./locales/en.json";
 import frTranslation from "./locales/fr.json";
 import esTranslation from "./locales/es.json";
