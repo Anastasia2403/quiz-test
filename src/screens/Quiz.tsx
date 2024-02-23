@@ -76,10 +76,10 @@ export const Quiz: React.FC<QuestionProps> = ({
           question.type === "single-select-image") &&
         updatedOptions[question.id].length === 1
       ) {
+        handleNext();
         {
           questionNum === 1 && window.location.reload();
         }
-        handleNext();
       }
 
       return updatedOptions;
