@@ -19,6 +19,7 @@ export const Results: React.FC<ResultsProps> = ({ questions }) => {
   const handleRetakeQuiz = () => {
     localStorage.removeItem("results");
     navigate("/");
+    window.location.reload();
   };
 
   const downloadCSV = () => {
