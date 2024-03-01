@@ -28,6 +28,7 @@ export const Quiz: React.FC<QuestionProps> = ({
   }>({});
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const storedOptions = localStorage.getItem("results");
@@ -70,16 +71,20 @@ export const Quiz: React.FC<QuestionProps> = ({
 
       //we can send the data to the server here
       localStorage.setItem("results", JSON.stringify(updatedOptions));
-
       if (
         (question.type === "single-select" ||
           question.type === "single-select-image") &&
         updatedOptions[question.id].length === 1
       ) {
+        setIsAnimating(true);
+
+        setTimeout(() => {
+          setIsAnimating(false);
         handleNext();
         {
           questionNum === 1 && window.location.reload();
         }
+        }, 2000);
       }
 
       return updatedOptions;
@@ -125,6 +130,7 @@ export const Quiz: React.FC<QuestionProps> = ({
               isSelected={selectedOptions[question.id]?.includes(option.value)}
               onClick={() => handleSaveData(option.value)}
               dangerouslySetInnerHTML={{ __html: option.label }}
+              className={isAnimating ? "animate" : ""}
             />
           ))}
         </Select>
@@ -138,6 +144,7 @@ export const Quiz: React.FC<QuestionProps> = ({
               isSelected={selectedOptions[question.id]?.includes(option.value)}
               onClick={() => handleSaveData(option.value)}
               dangerouslySetInnerHTML={{ __html: option.label }}
+              className={isAnimating ? "animate" : ""}
             />
           ))}
         </Select>
