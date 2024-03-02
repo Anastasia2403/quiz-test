@@ -1,8 +1,8 @@
-export const handleSingleSelect = (value: string) => {
+export const handleSingleSelectSave = (value: string) => {
     return [value];
 };
 
-export const handleBubble = (currentOptions: string[], value: string) => {
+export const handleBubbleSave = (currentOptions: string[], value: string) => {
     const optionIndex = currentOptions.indexOf(value);
     if (optionIndex === -1 && currentOptions.length < 3) {
         return [...currentOptions, value];
@@ -12,7 +12,7 @@ export const handleBubble = (currentOptions: string[], value: string) => {
     return currentOptions;
 };
 
-export const handleDefault = (currentOptions: string[], value: string) => {
+export const handleDefaultSave = (currentOptions: string[], value: string) => {
     const optionIndex = currentOptions.indexOf(value);
     if (optionIndex === -1) {
         return [...currentOptions, value];

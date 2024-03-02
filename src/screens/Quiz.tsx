@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Question } from "../types/Question.type";
 import { QuestionType } from "../types/Question.type";
-import { handleSingleSelect, handleBubble, handleDefault } from "../helpers";
+import { handleSingleSelectSave, handleBubbleSave, handleDefaultSave } from "../helpers";
 import { ProgressBar } from "../components/ProgressBar";
 import { RenderingQuestions } from "../components/RenderQuestions";
 import { StyledButton } from "../styles/Button";
@@ -42,7 +42,7 @@ export const Quiz: React.FC<QuizProps> = ({
       switch (question.type) {
         case QuestionType.SingleSelect:
         case QuestionType.SingleSelectImage:
-          updatedOptions = handleSingleSelect(value);
+          updatedOptions = handleSingleSelectSave(value);
           setIsAnimating(true);
 
           setTimeout(() => {
@@ -56,10 +56,10 @@ export const Quiz: React.FC<QuizProps> = ({
           }, 2000);
           break;
         case QuestionType.Bubble:
-          updatedOptions = handleBubble(currentOptions, value);
+          updatedOptions = handleBubbleSave(currentOptions, value);
           break;
         default:
-          updatedOptions = handleDefault(currentOptions, value);
+          updatedOptions = handleDefaultSave(currentOptions, value);
           break;
       }
 
