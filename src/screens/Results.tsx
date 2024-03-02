@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { DownloadButton } from "../components/DownloadButton";
-import { Question } from "../App";
+import { Question } from "../types/Question.type";
 import { MainWrapper } from "../styles/MainWrapper";
 import { Text } from "../styles/Text";
 import { StyledButton } from "../styles/Button";

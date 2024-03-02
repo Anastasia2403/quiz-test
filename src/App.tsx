@@ -10,14 +10,7 @@ import enTranslation from "./locales/en.json";
 import frTranslation from "./locales/fr.json";
 import esTranslation from "./locales/es.json";
 import deTranslation from "./locales/de.json";
-
-export interface Question {
-  id: number;
-  question: string;
-  subquestion: string;
-  type: string;
-  options: { label: string; value: string }[];
-}
+import { Question } from "./types/Question.type";
 
 i18n.use(initReactI18next).init({
   resources: {

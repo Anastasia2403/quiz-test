@@ -24,6 +24,7 @@ interface BubbleOptionProps {
 }
 
 type BubbleWrapperProps = Pick<BubbleOptionProps, "isSelected">;
+
 export const BubbleOption: React.FC<BubbleOptionProps> = ({
   onClick,
   isSelected,

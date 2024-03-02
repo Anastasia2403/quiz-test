@@ -7,6 +7,7 @@ import { Text } from "../styles/Text";
 interface InputProps {
   error?: boolean;
 }
+
 export const Input = styled.input<InputProps>`
   width: 100%;
   padding: 24px 20px;
