@@ -4,6 +4,7 @@ import { BubbleOption } from "./BubbleOption";
 import { Checkbox } from "./CheckboxOption";
 import { BubbleSelect } from "../styles/BubbleSelect";
 import { Select } from "../styles/Select";
+import { log } from "console";
 
 interface RenderingQuestionsProps {
   question: Question;
@@ -20,22 +21,9 @@ export const RenderingQuestions: React.FC<RenderingQuestionsProps> = ({
 }) => {
   switch (question.type) {
     case QuestionType.SingleSelect:
-      return (
-        <Select direction={'column'}>
-          {question.options.map((option, index) => (
-            <SingleWrapper
-              key={index}
-              isSelected={selectedOptions[question.id]?.includes(option.value)}
-              onClick={() => handleSaveData(option.value)}
-              dangerouslySetInnerHTML={{ __html: option.label }}
-              className={isAnimating ? "animate" : ""}
-            />
-          ))}
-        </Select>
-      );
     case QuestionType.SingleSelectImage:
       return (
-        <Select direction={'row'}>
+        <Select direction={question.type === QuestionType.SingleSelect ? 'column' : 'row'}>
           {question.options.map((option, index) => (
             <SingleWrapper
               key={index}
