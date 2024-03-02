@@ -17,6 +17,12 @@ interface QuestionProps {
   count: number;
   questionNum: number;
 }
+enum QuestionType {
+  SingleSelect = 'single-select',
+  SingleSelectImage = 'single-select-image',
+  Bubble = 'bubble',
+  MultipleSelect = 'multiple-select',
+}
 
 export const Quiz: React.FC<QuestionProps> = ({
   question,
@@ -39,63 +45,66 @@ export const Quiz: React.FC<QuestionProps> = ({
 
   const handleSaveData = (value: string) => {
     setSelectedOptions((prevOptions) => {
-      let updatedOptions: { [key: string]: string[] } = { ...prevOptions };
+      const currentOptions = prevOptions[question.id] || [];
+      let updatedOptions;
+      switch (question.type) {
+        case QuestionType.SingleSelect:
+        case QuestionType.SingleSelectImage:
+          updatedOptions = handleSingleSelect(value);
+          setIsAnimating(true);
 
-      if (
-        question.type === "single-select" ||
-        question.type === "single-select-image"
-      ) {
-        updatedOptions[question.id] = [value];
-      } else if (question.type === "bubble") {
-        const currentOptions = prevOptions[question.id] || [];
-        const optionIndex = currentOptions.indexOf(value);
-
-        if (optionIndex === -1 && currentOptions.length < 3) {
-          updatedOptions[question.id] = [...currentOptions, value];
-        } else if (optionIndex !== -1) {
-          updatedOptions[question.id] = currentOptions.filter(
-            (option) => option !== value,
-          );
-        }
-      } else {
-        const currentOptions = prevOptions[question.id] || [];
-        const optionIndex = currentOptions.indexOf(value);
-        if (optionIndex === -1) {
-          updatedOptions[question.id] = [...currentOptions, value];
-        } else {
-          updatedOptions[question.id] = currentOptions.filter(
-            (option) => option !== value,
-          );
-        }
+          setTimeout(() => {
+            setIsAnimating(false);
+            if(questionNum === 1) {
+              handleNext();
+              window.location.reload();
+            } else {
+              handleNext();
+            }
+          }, 2000);
+          break;
+        case QuestionType.Bubble:
+          updatedOptions = handleBubble(currentOptions, value);
+          break;
+        default:
+          updatedOptions = handleDefault(currentOptions, value);
+          break;
       }
 
-      //we can send the data to the server here
-      localStorage.setItem("results", JSON.stringify(updatedOptions));
-      if (
-        (question.type === "single-select" ||
-          question.type === "single-select-image") &&
-        updatedOptions[question.id].length === 1
-      ) {
-        setIsAnimating(true);
+      const newOptions = { ...prevOptions, [question.id]: updatedOptions };
+      localStorage.setItem("results", JSON.stringify(newOptions));
 
-        setTimeout(() => {
-          setIsAnimating(false);
-        handleNext();
-        {
-          questionNum === 1 && window.location.reload();
-        }
-        }, 2000);
-      }
-
-      return updatedOptions;
+      return newOptions;
     });
+  };
+
+  const handleSingleSelect = (value: string) => {
+    return [value];
+  };
+  
+  const handleBubble = (currentOptions: string[], value: string) => {
+    const optionIndex = currentOptions.indexOf(value);
+    if (optionIndex === -1 && currentOptions.length < 3) {
+      return [...currentOptions, value];
+    } else if (optionIndex !== -1) {
+      return currentOptions.filter((option) => option !== value);
+    }
+    return currentOptions;
+  };
+  
+  const handleDefault = (currentOptions: string[], value: string) => {
+    const optionIndex = currentOptions.indexOf(value);
+    if (optionIndex === -1) {
+      return [...currentOptions, value];
+    } else {
+      return currentOptions.filter((option) => option !== value);
+    }
   };
 
   const handleNext = () => {
     if (questionNum < count) {
       navigate(`/quiz/${questionNum + 1}`);
     } else {
-      //we can send the all object to the server here
       navigate("/processing");
     }
   };
