@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import { colors, fontsSize, fontsWeight } from "./Constants";
 
+
 const topBubbles = keyframes`
   0% {
     background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%, 80% 90%, 85% 90%, 90% 90%, 95% 90%;
@@ -80,23 +81,33 @@ export const SingleWrapper = styled.div<SingleWrapperProps>`
     background-image: ${bubbleGradient};
   }
 
+  &.animate {
+    transition: filter 0.3s ease;
+    pointer-events: none;
+  }
+
   ${({ isSelected }) =>
-  isSelected &&
-  css`
-      border-color: ${colors.secondary};
+    isSelected ?
+      css`
+        border-color: ${colors.secondary};
 
-      &.animate:before {
-        display: block;
-        animation: ${topBubbles} ease-in-out 1.5s forwards;
-        z-index: 1000;
-      }
+        &.animate:before {
+          display: block;
+          animation: ${topBubbles} ease-in-out 1.5s forwards;
+          z-index: 1000;
+        }
 
-      &.animate:after {
-        display: block;
-        animation: ${bottomBubbles} ease-in-out 1.5s forwards;
-        z-index: 1000;
-      }
-    `}
+        &.animate:after {
+          display: block;
+          animation: ${bottomBubbles} ease-in-out 1.5s forwards;
+          z-index: 1000;
+        }
+      ` :
+      css`
+        &.animate {
+          filter: blur(5px);
+        }
+  `}
 
   & > span {
     font-size: ${fontsSize.extraLarge};

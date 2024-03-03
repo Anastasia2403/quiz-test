@@ -43,17 +43,7 @@ export const Quiz: React.FC<QuizProps> = ({
         case QuestionType.SingleSelect:
         case QuestionType.SingleSelectImage:
           updatedOptions = handleSingleSelectSave(value);
-          setIsAnimating(true);
-
-          setTimeout(() => {
-            setIsAnimating(false);
-            if (questionNum === 1) {
-              handleNext();
-              window.location.reload();
-            } else {
-              handleNext();
-            }
-          }, 2000);
+          handleAnimation();
           break;
         case QuestionType.Bubble:
           updatedOptions = handleBubbleSave(currentOptions, value);
@@ -69,6 +59,21 @@ export const Quiz: React.FC<QuizProps> = ({
       return newOptions;
     });
   };
+
+  const handleAnimation = () => {
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      setIsAnimating(false);
+      if (questionNum === 1) {
+        handleNext();
+        window.location.reload();
+      } else {
+        handleNext();
+      }
+    }, 2000);
+  }
+
 
   const handleNext = () => {
     if (questionNum < count) {
@@ -108,7 +113,7 @@ export const Quiz: React.FC<QuizProps> = ({
       />
       {(question.type === "multiple-select" || question.type === "bubble") && (
         <StyledButton
-          onClick={handleNext}
+          onClick={handleAnimation}
           disabled={
             !selectedOptions.hasOwnProperty(question.id) ||
             selectedOptions[question.id].length === 0

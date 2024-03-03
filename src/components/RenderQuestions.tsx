@@ -45,6 +45,7 @@ export const RenderingQuestions: React.FC<RenderingQuestionsProps> = ({
               key={index}
               isSelected={selectedOptions[question.id]?.includes(option.value)}
               onClick={() => handleSaveData(option.value)}
+              className={isAnimating ? "animate" : ""}
             />
           ))}
         </Select>
@@ -57,6 +58,7 @@ export const RenderingQuestions: React.FC<RenderingQuestionsProps> = ({
               onClick={() => handleSaveData(option.value)}
               isSelected={selectedOptions[question.id]?.includes(option.value)}
               key={index}
+              className={isAnimating ? "animate" : ""}
             >
               {option.label}
             </BubbleOption>

@@ -50,6 +50,7 @@ interface CheckboxProps {
   id: string;
   isSelected: boolean;
   onClick: () => void;
+  className?: string;
 }
 
 type CheckboxWrapperProps = Pick<CheckboxProps, "isSelected">;
@@ -59,8 +60,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   id,
   isSelected,
   onClick,
+  className,
 }) => (
-  <CheckboxWrapper isSelected={isSelected} onClick={onClick}>
+  <CheckboxWrapper isSelected={isSelected} onClick={onClick} className={className}>
     <input type="checkbox" id={id} checked={isSelected} onClick={onClick} />
     <label htmlFor={id} dangerouslySetInnerHTML={{ __html: label }} />
   </CheckboxWrapper>

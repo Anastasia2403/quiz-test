@@ -21,6 +21,7 @@ interface BubbleOptionProps {
   onClick: () => void;
   isSelected: boolean;
   children: string;
+  className?: string;
 }
 
 type BubbleWrapperProps = Pick<BubbleOptionProps, "isSelected">;
@@ -29,12 +30,14 @@ export const BubbleOption: React.FC<BubbleOptionProps> = ({
   onClick,
   isSelected,
   children,
+  className,
 }) => {
   return (
     <BubbleWrapper
       onClick={onClick}
       isSelected={isSelected}
       dangerouslySetInnerHTML={{ __html: children }}
+      className={className}
     />
   );
 };
