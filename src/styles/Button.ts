@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import { colors, fontsSize, fontsWeight } from "./Constants";
 import { keyframes } from "styled-components";

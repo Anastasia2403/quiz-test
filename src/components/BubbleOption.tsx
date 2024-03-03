@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { SingleWrapper } from "../styles/SingleOption";
-import { fontsSize } from "../styles/Constants";
+import { colors, fontsSize } from "../styles/Constants";
 
-export const BubbleWrapper = styled(SingleWrapper)<BubbleWrapperProps>`
+export const BubbleWrapper = styled(SingleWrapper) <BubbleWrapperProps>`
   border-radius: 50%;
   width: 88px;
   height: 88px;
@@ -11,6 +11,13 @@ export const BubbleWrapper = styled(SingleWrapper)<BubbleWrapperProps>`
   text-align: center;
   padding: 12px 8px 24px 8px;
   justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1); 
+    background-color: ${colors.lightPrimary}; // Modify the background color to be lighter
+    border-color: ${({ isSelected }) => (isSelected ? colors.secondary : 'transparent')};
+  }
 
   & > span{
     font-size: ${fontsSize.large};
