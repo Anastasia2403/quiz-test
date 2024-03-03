@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface SelectsWrapperProps {
   direction: "row" | "column";
 }
+
 export const Select = styled.div<SelectsWrapperProps>`
   width: 100%;
   display: flex;

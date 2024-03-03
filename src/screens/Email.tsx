@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { StyledInput } from "../components/Input";
@@ -10,6 +10,7 @@ export const Email: React.FC = () => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
+  const [isLoading, setIsLoading] = useState(false); // New state variable
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -36,7 +37,42 @@ export const Email: React.FC = () => {
       localStorage.setItem("results", JSON.stringify(results));
     }
 
-    navigate("/results");
+    handleSendData();
+  };
+
+  const handleSendData = () => {
+    setIsLoading(true);
+    const answers = JSON.parse(localStorage.getItem("results") || "{}");
+    delete answers.email;
+    const userData = {
+      email: email,
+    };
+
+    setTimeout(() => {
+      fetch("https://api.example.com/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          answers: answers,
+          userData: userData,
+        })
+      })
+        .then((response) => {
+          console.log(response);
+          //navigate must be called here when we will have a correct api
+        })
+        .catch((error) => {
+          //we can show some toast here with error message
+          console.error(error);
+        })
+        .finally(() => {
+          //now i use navigate here because i want to navigate after the fetch failed
+          navigate("/results");
+          setIsLoading(false);
+        });
+    }, 3000);//i used timeout to simulate the fetch
   };
 
   return (
@@ -73,10 +109,11 @@ export const Email: React.FC = () => {
         {t("email.agree")}
       </Text>
       <StyledButton
-        disabled={isDisabled || email.trim().length === 0}
+        disabled={isDisabled || email.trim().length === 0 || isLoading}
         onClick={handleNextClick}
+        className={isLoading ? "animate" : ""}
       >
-        {t("next")}
+        {isLoading ? t("submit") : t("next")}
       </StyledButton>
     </MainWrapper>
   );
