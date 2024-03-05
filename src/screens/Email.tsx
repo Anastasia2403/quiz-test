@@ -10,7 +10,7 @@ export const Email: React.FC = () => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
-  const [isLoading, setIsLoading] = useState(false); // New state variable
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { t } = useTranslation();
 

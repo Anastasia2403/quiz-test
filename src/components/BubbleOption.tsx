@@ -15,7 +15,7 @@ export const BubbleWrapper = styled(SingleWrapper) <BubbleWrapperProps>`
 
   &:hover {
     transform: scale(1.1); 
-    background-color: ${colors.lightPrimary}; // Modify the background color to be lighter
+    background-color: ${colors.lightPrimary};
     border-color: ${({ isSelected }) => (isSelected ? colors.secondary : 'transparent')};
   }
 
